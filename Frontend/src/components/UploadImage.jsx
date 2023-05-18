@@ -9,12 +9,21 @@ export default function UploadImage({ upload }) {
   const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [input1, setInput1] = useState("");
+  const [input2, setInput2] = useState("");
+  const [input3, setInput3] = useState("");
+  const [input4, setInput4] = useState("");
+
   const [isOpen, setIsOpen] = useState(false);
 
   const selectImage = (e) => {
-    SetSelectedImage(e.target.files[0]);
-    setImageUrl(URL.createObjectURL(e.target.files[0]));
-    setIsOpen(true);
+    try {
+      SetSelectedImage(e.target.files[0]);
+      setImageUrl(URL.createObjectURL(e.target.files[0]));
+      setIsOpen(true);
+    } catch (error) {
+      console.log("An error occured:", error);
+    }
   };
 
   const onPost = (event) => {
@@ -29,6 +38,10 @@ export default function UploadImage({ upload }) {
     formData.append("image", selectedImage);
     formData.append("name", name);
     formData.append("keyword", keyword);
+    formData.append("input1", input1);
+    formData.append("input2", input2);
+    formData.append("input3", input3);
+    formData.append("input4", input4);
 
     axios
       .post("http://localhost:7007/api/images", formData)
@@ -37,6 +50,10 @@ export default function UploadImage({ upload }) {
         setImageUrl("");
         setName("");
         setKeyword("");
+        setInput1("");
+        setInput2("");
+        setInput3("");
+        setInput4("");
         SetSelectedImage();
         alert("Image uploaded successfully...");
       })
@@ -96,6 +113,34 @@ export default function UploadImage({ upload }) {
                   style={{ width: 300 }}
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="input1"
+                  style={{ width: 300 }}
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="input2"
+                  style={{ width: 300 }}
+                  value={input2}
+                  onChange={(e) => setInput2(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="input3"
+                  style={{ width: 300 }}
+                  value={input3}
+                  onChange={(e) => setInput3(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="input4"
+                  style={{ width: 300 }}
+                  value={input4}
+                  onChange={(e) => setInput4(e.target.value)}
                 />
                 <button type="submit">POST</button>
               </div>

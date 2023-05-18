@@ -18,6 +18,22 @@ export default (sequelize) =>
         type: DataTypes.STRING,
         allowNull: false,
       },
+      input1: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      input2: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      input3: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      input4: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
 
       image: {
         type: DataTypes.STRING,
