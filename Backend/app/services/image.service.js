@@ -7,7 +7,6 @@ export const getAllImg = async (key) => {
     let images = await Album.findAll();
 
     if (key) {
-
       images = await Album.findAll({
         where: {
           [Op.or]: [
@@ -32,11 +31,12 @@ export const getAllImg = async (key) => {
   }
 };
 
-export const getImg = async (name) => {
+export const getImg = async (name, default_name) => {
   try {
     const images = await Album.findOne({
       where: {
         name,
+        default_name,
       },
     });
     return images;

@@ -61,7 +61,6 @@ export default function Homepage() {
                     {item.input2 && <span>input2: {item.input2}</span>}
                     {item.input3 && <span>input3: {item.input3}</span>}
                     {item.input4 && <span>input4: {item.input4}</span>}
-                    {console.log(item)}
                   </div>
                 </div>
               );

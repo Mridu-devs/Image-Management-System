@@ -14,6 +14,10 @@ export default (sequelize) =>
         type: DataTypes.STRING,
         allowNull: false,
       },
+      default_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       keyword: {
         type: DataTypes.STRING,
         allowNull: false,

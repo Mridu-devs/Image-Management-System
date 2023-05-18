@@ -1,4 +1,3 @@
-import UploadImage from "./components/UploadImage";
 import Homepage from "./pages/Homepage";
 
 function App() {

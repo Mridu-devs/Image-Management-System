@@ -6,6 +6,10 @@ export default function UploadImage({ upload }) {
   const formRef = useRef(null);
 
   const [selectedImage, SetSelectedImage] = useState();
+  {
+    selectedImage && console.log("selectedImage", selectedImage.name);
+  }
+  // console.log("selectedImage", selectedImage.name);
   const [imageUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -36,6 +40,7 @@ export default function UploadImage({ upload }) {
     const formData = new FormData();
 
     formData.append("image", selectedImage);
+    formData.append("default_name", selectedImage.name);
     formData.append("name", name);
     formData.append("keyword", keyword);
     formData.append("input1", input1);
